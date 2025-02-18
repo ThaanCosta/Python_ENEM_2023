@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
+import seaborn as sns
 from sqlalchemy import create_engine
 from sqlalchemy.engine import URL
 from config.db_config import database_config
@@ -71,29 +72,136 @@ st.markdown("---")
 
 # Exibir gráficos conforme a opção escolhida no menu
 if menu_option == "💰 Faixa de Renda":
-    st.markdown("### 🔥 Top 5 Faixa de Renda")
-    st.bar_chart(dfTop5FaixaDeRenda, x='FaixaDeRenda', y='QtdeAlunos', use_container_width=True)
+    st.markdown("### 🔥 Top 5 Distribuição por Faixa de Renda")
+
+    # Criar o gráfico de barras com melhorias
+    fig, ax = plt.subplots(figsize=(8, 5))
+
+    # Escolher uma paleta de cores mais sofisticada
+    colors = sns.color_palette("muted", len(dfTop5FaixaDeRenda))
+
+    bars = ax.bar(
+        dfTop5FaixaDeRenda['FaixaDeRenda'],
+        dfTop5FaixaDeRenda['QtdeAlunos'],
+        color=colors,
+        edgecolor='none',  # Removendo bordas das barras
+        linewidth=1.2
+    )
+
+    # Melhorando a formatação dos eixos
+    #ax.set_xlabel("Faixa de Renda", fontsize=12, fontweight="bold")
+    #ax.set_ylabel("Quantidade de Alunos", fontsize=12, fontweight="bold")
+    #ax.set_title("📊 Distribuição por Faixa de Renda", fontsize=14, fontweight="bold", pad=15)
+
+    # Melhorando a rotação dos rótulos para não ficarem cortados
+    ax.set_xticklabels(
+        dfTop5FaixaDeRenda['FaixaDeRenda'], 
+        rotation=30, 
+        ha="right", 
+        fontsize=10, 
+        fontweight="bold",
+        wrap=True
+    )
+
+    # Adicionando os valores acima das barras para melhor visualização
+    for bar in bars:
+        yval = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width()/2, yval + 20000, f"{int(yval):,}".replace(",", "."), 
+                ha='center', va='bottom', fontsize=10, fontweight="bold", color='white')
+
+    # Removendo a borda do gráfico
+    for spine in ax.spines.values():
+        spine.set_visible(False)
+
+    # Ajustar layout para evitar cortes
+    plt.tight_layout()
+
+    # Exibir no Streamlit
+    st.pyplot(fig)
+
 
 elif menu_option == "🌎 Estados":
     st.markdown("### 🌎 Top 5 Estados com Mais Alunos")
-    st.bar_chart(dfTop5QtdeAlunosPorUF, x="UF", y="QtdeAlunos", use_container_width=True)
+    
+    #st.bar_chart(dfTop5QtdeAlunosPorUF, x="UF", y="QtdeAlunos", use_container_width=True)
+
+    # Criar o gráfico de barras com melhorias
+    fig, ax = plt.subplots(figsize=(8, 5))
+
+    # Escolher uma paleta de cores mais sofisticada
+    colors = sns.color_palette("muted", len(dfTop5QtdeAlunosPorUF))
+
+    bars = ax.bar(
+        dfTop5QtdeAlunosPorUF['UF'],
+        dfTop5QtdeAlunosPorUF['QtdeAlunos'],
+        color=colors,
+        edgecolor='none',  # Removendo bordas das barras
+        linewidth=1.2
+    )
+
+     # Melhorando a rotação dos rótulos para não ficarem cortados
+    ax.set_xticklabels(
+        dfTop5QtdeAlunosPorUF['UF'], 
+        rotation=30, 
+        ha="right", 
+        fontsize=10, 
+        fontweight="bold",
+        wrap=True
+    )
+
+    # Adicionando os valores acima das barras para melhor visualização
+    for bar in bars:
+        yval = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width()/2, yval + 20000, f"{int(yval):,}".replace(",", "."), 
+                ha='center', va='bottom', fontsize=10, fontweight="bold", color='white')
+
+    # Removendo a borda do gráfico
+    for spine in ax.spines.values():
+        spine.set_visible(False)
+
+    # Ajustar layout para evitar cortes
+    plt.tight_layout()
+
+    # Exibir no Streamlit
+    st.pyplot(fig)
+
+
 
 elif menu_option == "🏫 Tipo de Escola":
-    st.markdown("### 🏫 Tipo de Escola")
+    st.markdown("### 🏫 Distribuição por Tipo de Escola")
 
-    # Criar gráfico de pizza
+    # Criar gráfico de pizza com melhorias
     sizes = dfTipoEscola['QTDALUNOS']
     labels = dfTipoEscola['TIPO DA ESCOLA']
+    colors = ['#4C78A8', '#F58518', '#54A24B']  # Azul, Laranja, Verde
 
-    fig, ax = plt.subplots(figsize=(6, 6))
+    fig, ax = plt.subplots(figsize=(7, 7))
     wedges, texts, autotexts = ax.pie(
         sizes,
         labels=labels,
         autopct='%1.1f%%',
-        colors=['#2E86C1', '#28B463', '#F39C12', '#8E44AD'],
+        colors=colors,
+        startangle=140,
+        wedgeprops={'edgecolor': 'white', 'linewidth': 2},
         textprops={'fontsize': 12, 'weight': 'bold'}
     )
-    ax.set_title("📊 Distribuição por Tipo de Escola", fontsize=16, fontweight="bold")
+
+    # Melhorar legibilidade das labels
+    for text in texts:
+        text.set_fontsize(14)
+        text.set_fontweight('bold')
+
+    for autotext in autotexts:
+        autotext.set_fontsize(12)
+        autotext.set_fontweight('bold')
+        autotext.set_color('white')
+
+    # Melhorar título e layout
+    #ax.set_title("📊 Distribuição por Tipo de Escola", fontsize=16, fontweight="bold", pad=20)
+    
+    # Ajustar layout para evitar cortes
+    plt.tight_layout()
+
     st.pyplot(fig)
 
 # Mensagem final
