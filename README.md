@@ -61,13 +61,13 @@ Os dados processados são visualizados em painéis interativos gerados com **Str
 
 ### 🔥 **Exemplo de gráficos gerados**
 #### Distribuição por Faixa de Renda
-![Distribuição Faixa de Renda](docs/faixa_renda.png)
+![Distribuição Faixa de Renda](docs/faixaDeRenda.png)
 
 #### Top 5 Estados com Mais Inscritos
-![Distribuição por Estado](docs/top5_estados.png)
+![Distribuição por Estado](docs/Estados.png)
 
 #### Tipo de Escola
-![Distribuição por Tipo de Escola](docs/tipo_escola.png)
+![Distribuição por Tipo de Escola](docs/TipoEscola.png)
 
 
 ## 🛠 Funcionalidades da Aplicação
