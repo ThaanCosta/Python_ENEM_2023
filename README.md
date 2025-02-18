@@ -58,7 +58,7 @@ Os dados tratados podem ser visualizados em dashboards criados com **Streamlit**
 Fique à vontade para abrir **Issues** e **Pull Requests** com melhorias ou sugestões para o projeto.
 
 ## 📩 Contato
-**Desenvolvedor:** Thaan Costa  
+**Data Engineer | Analytics:** Thaan Costa  
 📧 Email: [seuemail@email.com](mailto:thaancosta@gmail.com)  
 🔗 LinkedIn: [linkedin.com/in/seulinkedin](https://www.linkedin.com/in/thaancosta/)  
 
