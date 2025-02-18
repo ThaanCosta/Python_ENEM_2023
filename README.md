@@ -59,8 +59,8 @@ Fique à vontade para abrir **Issues** e **Pull Requests** com melhorias ou suge
 
 ## 📩 Contato
 **Desenvolvedor:** Thaan Costa  
-📧 Email: [seuemail@email.com](mailto:seuemail@email.com)  
-🔗 LinkedIn: [linkedin.com/in/seulinkedin](https://www.linkedin.com/in/seulinkedin)  
+📧 Email: [seuemail@email.com](mailto:thaancosta@gmail.com)  
+🔗 LinkedIn: [linkedin.com/in/seulinkedin](https://www.linkedin.com/in/thaancosta/)  
 
 ---
 
