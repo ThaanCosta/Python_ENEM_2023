@@ -59,7 +59,6 @@ Fique à vontade para abrir **Issues** e **Pull Requests** com melhorias ou suge
 
 ## 📩 Contato
 **Data Engineer | Analytics:** Thaan Costa  
-
 📧 Email: [seuemail@email.com](mailto:thaancosta@gmail.com)  
 🔗 LinkedIn: [linkedin.com/in/seulinkedin](https://www.linkedin.com/in/thaancosta/) 
 
