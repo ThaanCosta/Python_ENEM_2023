@@ -121,7 +121,7 @@ if menu_option == "💰 Faixa de Renda":
 
 
 elif menu_option == "🌎 Estados":
-    st.markdown("### 🌎 Top 5 Estados com Mais Alunos")
+    st.markdown("### 🌎 Top 5 Estados com Mais Inscritos")
     
     #st.bar_chart(dfTop5QtdeAlunosPorUF, x="UF", y="QtdeAlunos", use_container_width=True)
 
