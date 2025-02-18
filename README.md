@@ -43,7 +43,7 @@ pip install -r requirements.txt
 
 ### 3️⃣ **Executar a aplicação Streamlit**
 ```sh
-streamlit run app/main.py
+streamlit run dataViz_Streamlit.py
 ```
 
 ### 4️⃣ **Executar os scripts de ETL**
@@ -59,8 +59,8 @@ Fique à vontade para abrir **Issues** e **Pull Requests** com melhorias ou suge
 
 ## 📩 Contato
 **Data Engineer | Analytics:** Thaan Costa  
-📧 Email: [seuemail@email.com](mailto:thaancosta@gmail.com)  
-🔗 LinkedIn: [linkedin.com/in/seulinkedin](https://www.linkedin.com/in/thaancosta/) 
+📧 Email: [thaancosta@gmail.com](mailto:thaancosta@gmail.com)  
+🔗 LinkedIn: [https://www.linkedin.com/in/thaancosta/](https://www.linkedin.com/in/thaancosta/) 
 
 ---
 
